@@ -1,0 +1,20 @@
+version: '2.3'
+services:
+  clash:
+    image: dreamacro/clash
+    container_name: clash
+    restart: always
+    volumes:
+      - ./config.yaml:/root/.config/clash/config.yaml
+      - /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime
+      - /etc/timezone:/etc/timezone
+    privileged: true
+    ports:
+      - "7890:7890"
+      - "7891:7891"
+      - "9090:9090"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "10"
