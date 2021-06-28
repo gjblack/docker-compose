@@ -1,0 +1,14 @@
+version: '2.3'
+services:
+  yacd:
+    image: haishanh/yacd
+    container_name: yacd
+    restart: always
+    privileged: true
+    ports:
+      - "9080:80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "20m"
+        max-file: "10"
